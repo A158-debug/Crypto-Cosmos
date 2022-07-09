@@ -62,8 +62,8 @@ const CryptoDetails = () => {
             <p>An overview showing the statistics of {cryptoDetails.name}, such as the base and quote currency, the rank, and trading volume.</p>
           </Col>
           {stats.map(({ icon, title, value }) => (
-            <Col className="coin-stats">
-              <Col className="coin-stats-name">
+            <Col className="coin-stats" key={title.uuid}>
+              <Col className="coin-stats-name" key={title.uuid}>
                 <Text>{icon}</Text>
                 <Text>{title}</Text>
               </Col>
