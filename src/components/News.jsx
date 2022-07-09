@@ -6,7 +6,7 @@ import { useGetCryptosQuery } from '../services/cryptoApi';
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi';
 import Loader from './Loader';
 
-const demoImage = 'https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News';
+const demoImage = 'https://www.financialexpress.com/wp-content/uploads/2021/12/pexels-rodnae-productions-8370747.jpg';
 
 const { Text, Title } = Typography;
 const { Option } = Select;
@@ -37,11 +37,11 @@ const News = ({ simplified }) => {
       )}
       {cryptoNews.value.map((news, i) => (
         <Col xs={24} sm={12} lg={8} key={i}>
-          <Card hoverable className="news-card">
+          <Card hoverable className="news-card" key={news.uuid}>
             <a href={news.url} target="_blank" rel="noreferrer">
               <div className="news-image-container">
                 <Title className="news-title" level={4}>{news.name}</Title>
-                <img src={news?.image?.thumbnail?.contentUrl || demoImage} alt="" />
+                <img src={news?.image?.thumbnail?.contentUrl || demoImage} alt="" height="100" width="100"/>
               </div>
               <p>{news.description.length > 100 ? `${news.description.substring(0, 100)}...` : news.description}</p>
               <div className="provider-container">
