@@ -14,7 +14,7 @@ const { Option } = Select;
 const News = ({ simplified }) => {
   const [newsCategory, setNewsCategory] = useState('Cryptocurrency');
   const { data } = useGetCryptosQuery(100);
-  const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory, count: simplified ? 6 : 12 });
+  const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory, count: simplified ? 9 : 18 });
 
   if (!cryptoNews?.value) return <Loader />;
 
@@ -36,14 +36,14 @@ const News = ({ simplified }) => {
         </Col>
       )}
       {cryptoNews.value.map((news, i) => (
-        <Col xs={24} sm={12} lg={8} key={i}>
-          <Card hoverable className="news-card" key={news.uuid} style={{borderRadius: "15px"}}>
+        <Col xs={24} sm={12} lg={8} key={i} >
+          <Card hoverable className="news-card" key={news.uuid} style={{borderRadius: "15px",}}>
             <a href={news.url} target="_blank" rel="noreferrer">
               <div className="news-image-container">
-                <Title className="news-title" level={4}>{news.name}</Title>
+                <Title className="news-title" level={4}>{news.name.length >80?`${news.name.substring(0, 80)}...` : news.name}</Title>
                 <img src={news?.image?.thumbnail?.contentUrl || demoImage} alt="" height="100" width="100" style={{borderRadius: "4px"}}/>
               </div>
-              <p>{news.description.length > 100 ? `${news.description.substring(0, 100)}...` : news.description}</p>
+              <p>{news.description.length > 100 ? `${news.description.substring(0, 100)}...Read more` : news.description}</p>
               <div className="provider-container">
                 <div>
                   <Avatar src={news.provider[0]?.image?.thumbnail?.contentUrl || demoImage} alt="" />

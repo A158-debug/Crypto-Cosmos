@@ -1,13 +1,20 @@
+/* eslint-disable import/first */
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import { Layout, Typography, Space } from 'antd';
-import { HomePage, News, Cryptocurrencies, CryptoDetails, Navbar } from './components';
+import { Layout,Typography,Space} from 'antd';
+import  Navbar  from './components/Navbar';
+import  HomePage  from './components/HomePage';
+import  Cryptocurrencies  from './components/Cryptocurrencies';
+import  CryptoDetails  from './components/CryptoDetails';
+import  News  from './components/News';
+
 import './App.css';
+
 
 const App = () => (
   <div className="app">
     <div className="navbar">
-      <Navbar />
+     <Navbar/>
     </div>
     <div className="main">
       <Layout>
@@ -21,7 +28,7 @@ const App = () => (
         </div>
       </Layout>
       <div className="footer">
-        <Typography.Title level={5} style={{ color: 'white', textAlign: 'center' }}>Copyright © 2021
+        <Typography.Title level={5} style={{ color: 'white', textAlign: 'center' }}>Copyright © 2022
           <Link to="/"> Abhishek Kumar </Link> <br />
         </Typography.Title>
         <Space>
